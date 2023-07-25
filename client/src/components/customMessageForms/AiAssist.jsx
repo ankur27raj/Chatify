@@ -1,4 +1,4 @@
-import { usePostAiAssistMutation } from "@/state/api";
+import { usePostAiAssistMutation } from "../../state/api";
 import React, { useEffect, useState } from "react";
 import MessageFormUI from "./MessageFormUI";
 
@@ -52,10 +52,9 @@ const AiAssist = ({ props, activeChat }) => {
       const form = { text: message };
       triggerAssist(form);
     }
-  }, [debouncedValue]); // eslint-disable-line
+  }, [debouncedValue]);
 
   const handleKeyDown = (e) => {
-    // handle enter and tab
     if (e.keyCode === 9 || e.keyCode === 13) {
       e.preventDefault();
       setMessage(`${message} ${appendText}`);
@@ -67,7 +66,7 @@ const AiAssist = ({ props, activeChat }) => {
     if (resultAssist.data?.text) {
       setAppendText(resultAssist.data?.text);
     }
-  }, [resultAssist]); // eslint-disable-line
+  }, [resultAssist]);
 
   return (
     <MessageFormUI

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { usePostLoginMutation, usePostSignUpMutation } from "@/state/api";
+import { usePostLoginMutation, usePostSignUpMutation } from "../../state/api";
 
 const Login = ({ setUser, setSecret }) => {
   const [isRegister, setIsRegister] = useState(false);
@@ -21,7 +21,7 @@ const Login = ({ setUser, setSecret }) => {
       setUser(username);
       setSecret(password);
     }
-  }, [resultLogin.data]); // eslint-disable-line
+  }, [resultLogin.data]);
 
   return (
     <div className="login-page">
